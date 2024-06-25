@@ -10,7 +10,7 @@
 		"lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
 		"lint:stylelint": "stylelint --cache",
 		"lint:lint-staged": "lint-staged",
-		"prepare": "husky install",
+		"prepare": "husky",
 		"release": "standard-version",
 		"commit": "git status && git add -A && git-cz"
 	},
