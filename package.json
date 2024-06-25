@@ -1,0 +1,52 @@
+{
+	"name": "utilsandapis",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "vite",
+		"lint:eslint": "eslint --fix --ext .js,.ts,.vue ./src",
+		"lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
+		"lint:stylelint": "stylelint --cache",
+		"lint:lint-staged": "lint-staged",
+		"prepare": "husky install",
+		"release": "standard-version",
+		"commit": "git status && git add -A && git-cz"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/szw321127/UtilsAndAPIs.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/szw321127/UtilsAndAPIs/issues"
+	},
+	"homepage": "https://github.com/szw321127/UtilsAndAPIs#readme",
+	"devDependencies": {
+		"@commitlint/cli": "^19.3.0",
+		"@commitlint/config-conventional": "^19.2.2",
+		"@types/node": "^20.14.1",
+		"@typescript-eslint/eslint-plugin": "^7.14.1",
+		"@typescript-eslint/parser": "^7.14.1",
+		"commitizen": "^4.3.0",
+		"cz-git": "^1.9.3",
+		"eslint": "^9.5.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-prettier": "^5.1.3",
+		"eslint-plugin-vue": "^9.26.0",
+		"globals": "^15.6.0",
+		"husky": "^9.0.11",
+		"lint-staged": "^15.2.7",
+		"prettier": "^3.3.2",
+		"typescript": "^5.4.5",
+		"vite": "^5.2.13"
+	},
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-git"
+		}
+	}
+}
