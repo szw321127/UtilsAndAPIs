@@ -1,18 +1,13 @@
 type StateType = 'REJECTED' | 'FULLFILLED' | 'PENDING'
 
-type ReturnData<T> = {
-	state: StateType
-	data?: T
-	index: number
-}
-
 type TaskFn<T> = () => Promise<T>
 
 type TaskNode<T> = {
-	tasks: TaskFn<T>[]
-	resolve: (data: ReturnData<T>[]) => void
+	task: TaskFn<T>
+	resolve: (value: T | PromiseLike<T>) => void
+	reject: (reason?: any) => void
 }
 
 interface ITask {
-	add<T>(task: TaskFn<T> | TaskFn<T>[]): Promise<ReturnData<T> | ReturnData<T>[]>
+	add<T>(task: TaskFn<T> | TaskFn<T>[]): Promise<T | T[]>
 }

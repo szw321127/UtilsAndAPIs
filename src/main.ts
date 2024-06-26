@@ -1,4 +1,4 @@
-import { MyPromise } from './tools/MyPromise'
+// import { MyPromise } from './tools/MyPromise'
 
 // const promise = new MyPromise<string>((reslove, reject) => {
 //   setTimeout(() => {
@@ -53,37 +53,66 @@ import { MyPromise } from './tools/MyPromise'
 //   console.log(rej);
 // })
 
-import { Task } from './tools/Task'
+// import { Task } from './tools/Task'
 
-let tasker = new Task(2)
+// let tasker = new Task(2)
 
-const getData = () =>
-	new Promise<number>(reslove => {
-		setTimeout(() => {
-			reslove(Date.now())
-		}, 1000)
-	})
-const now = Date.now()
-tasker.add<number>([getData, getData, getData, getData, getData, getData, getData, getData, getData, getData]).then(res => {
-	console.log(res)
-	console.log(Date.now() - now)
-})
-tasker.add<number>([getData, getData, getData, getData, getData, getData, getData, getData, getData, getData]).then(res => {
-	console.log(res)
-	console.log(Date.now() - now)
-})
+// const getData = (delay: number = 1000) =>
+// 	new Promise<number>(reslove => {
+// 		setTimeout(() => {
+// 			reslove(Date.now())
+// 		}, delay)
+// 	})
+// const now = Date.now()
+// tasker
+// 	.add<number>(() => getData(1000))
+// 	.then(res => {
+// 		console.log(res - now)
+// 	})
+// tasker
+// 	.add<number>(() => getData(2000))
+// 	.then(res => {
+// 		console.log(res - now)
+// 	})
+// tasker
+// 	.add<number>(() => getData(3000))
+// 	.then(res => {
+// 		console.log(res - now)
+// 	})
+// tasker
+// 	.add<number>(() => getData(2000))
+// 	.then(res => {
+// 		console.log(res - now)
+// 	})
+// tasker
+// 	.add<number>(() => getData(5000))
+// 	.then(res => {
+// 		console.log(res - now)
+// 	})
+// tasker
+// 	.add<number>(() => getData(6000))
+// 	.then(res => {
+// 		console.log(res - now)
+// 	})
+// tasker
+// 	.add<number>(() => getData(1000))
+// 	.then(res => {
+// 		console.log(res - now)
+// 	})
 
-MyPromise.all([
-	getData(),
-	getData(),
-	getData(),
-	getData(),
-	getData(),
-	getData(),
-	getData(),
-	getData(),
-	getData(),
-	getData()
-]).then(res => {
-	console.log(res)
-})
+// MyPromise.all([
+// 	getData(),
+// 	getData(),
+// 	getData(),
+// 	getData(),
+// 	getData(),
+// 	getData(),
+// 	getData(),
+// 	getData(),
+// 	getData(),
+// 	getData()
+// ]).then(res => {
+// 	console.log(res)
+// })
+
+import './tools/Memo'

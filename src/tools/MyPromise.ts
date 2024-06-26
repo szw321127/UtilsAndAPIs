@@ -100,9 +100,11 @@ export class MyPromise<T> implements IMyPromise<T> {
 	}
 
 	static resolve<T>(result?: T) {
-		return new MyPromise<T>(reslove => {
-			reslove(result)
-		})
+		return isPromiseLike(result)
+			? result
+			: new MyPromise<T>(reslove => {
+					reslove(result)
+				})
 	}
 
 	static reject<T = never>(reason?: T) {
