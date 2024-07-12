@@ -114,5 +114,8 @@
 // ]).then(res => {
 // 	console.log(res)
 // })
+// import msg from './jsons/userInfo.json'
+// console.log(msg)
+// import './tools/AsyncToSync'
 
-import './tools/Memo'
+// import './tools/LRU'

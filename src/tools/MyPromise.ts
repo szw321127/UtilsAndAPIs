@@ -43,7 +43,7 @@ export class MyPromise<T> implements IMyPromise<T> {
 	}
 
 	private runOne(
-		callback: OnFullFilledType<T, any> | OnRejectedType<any> | undefined,
+		callback: OnFulFilledType<T, any> | OnRejectedType<any> | undefined,
 		reslove: ResloveType<any>,
 		reject: RejectType
 	) {
@@ -69,9 +69,9 @@ export class MyPromise<T> implements IMyPromise<T> {
 	private run() {
 		if (this.state === State.PENDING) return
 		while (this.handlers.length) {
-			const { onfullfilled, onrejected, reslove, reject } = this.handlers.shift() as HandlerType
+			const { onfulfilled, onrejected, reslove, reject } = this.handlers.shift() as HandlerType
 			if (this.state === State.FULFILLED) {
-				this.runOne(onfullfilled, reslove, reject)
+				this.runOne(onfulfilled, reslove, reject)
 			} else if (this.state === State.REJECTED) {
 				this.runOne(onrejected, reslove, reject)
 			}
@@ -85,9 +85,9 @@ export class MyPromise<T> implements IMyPromise<T> {
 		this.run()
 	}
 
-	public then<TR, TF = never>(onfullfilled?: OnFullFilledType<T, TR>, onrejected?: OnRejectedType<TF>) {
+	public then<TR, TF = never>(onfulfilled?: OnFulFilledType<T, TR>, onrejected?: OnRejectedType<TF>) {
 		return new MyPromise<TR | TF>((reslove, reject) => {
-			this.handlers.push({ onfullfilled, onrejected, reslove, reject })
+			this.handlers.push({ onfulfilled, onrejected, reslove, reject })
 			this.run()
 		})
 	}
